@@ -3,44 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda de Eventos</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Alepe Suporte</title>
+    <link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}">
+    <title>Agenda Alepe</title>
 </head>
 <body>
-    <header>
-        <div class="header-right">Segunda 29/11</div>
-        <div class="header-left">Terça 30/11</div>
-    </header>
-    <div class="events-column-right">
-        <div class="event-pass">
-            <span class="time">09:00 - 10:00 </span><span class="local">Plenário </span>
-            <span class="status">  Evento Finalizado</span>
-            <ul>
-                <div class="item">1x Projetor</div>
-                <div class="item">1x Cabo HDMI</div>
-            </ul>
-        </div>
-        <div class="event-progress">
-            <span class="time">12:00 - 14:00 </span> <span class="local"> Plenário </span>
-            <span class="status">  Em Progresso</span>
-            <ul>
-                <div class="item">1x Projetor</div>
-                <div class="item">1x Cabo HDMI</div>
-            </ul>
-        </div>
-    </div>
-    <div class="events-column-left">
-        <div class="event-progress">
-            <span class="time">13:00 - 14:00 </span><span class="local">Plenário </span>
-            <span class="status">  Em Progresso</span>
-            <ul>
-                <div class="item">1x Projetor</div>
-                <div class="item">1x Cabo HDMI</div>
-            </ul>
-        </div>
+    <div class="container">
+        <!-- sidebar section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="{% static 'assets/icons/icone-alepe 1.png' %}">
+                    <h2><span class="danger"> Alepe Suporte</span></h2>
+                </div>
                 
-    </div>
+            </div>
 
+            <div class="sidebar">
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">
+                        calendar_today
+                    </span>
+                    <h3>Calendario</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        calendar_view_week
+                    </span>
+                    <h3>Mes</h3>
+                    <span class="message-count">12</span>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- fim sidebar section -->
+
+        <!-- main content -->
+        <main>
+             <!--colocar as tags aq-->
+            <!-- filtros -->
+            <ul class="filtros">
+                <li>
+                    <i class='bx bx-box'></i>
+                    <span class="info">
+                        <h3>
+                            {{ quantidade_eventos.agendados }}
+                        </h3>
+                        <p>Agendados</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-time-five'></i>
+                    <span class="info">
+                        <h3>
+                            {{ quantidade_eventos.em_progresso }}
+                        </h3>
+                        <p>Progresso</p>
+                    </span>
+                </li>
+                <li><i class='bx bx-check-double'></i>
+                    <span class="info">
+                        <h3>
+                            {{ quantidade_eventos.concluidos }}
+                        </h3>
+                        <p>Concluidos</p>
+                    </span>
+                </li>
+            </ul>
+            <!-- End of filtros -->
+        </main>
+        <!-- End of Main Content -->
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p><b> {{ current_user.username }}</b></p>
+                        <small class="text-muted">Suporte</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="{% static 'assets/images/home-eventos/profile-sti.png' %}">
+                    </div>
+                </div>
+
+            </div>
+            <!-- End of Nav -->
+
+            <div class="reminders">
+                <div class="header">
+                    <h2>Amanhã</h2>
+                    <span class="material-icons-sharp">
+                        notifications_none
+                    </span>
+                </div>
+
+                <!-- mudar para mostrar somente os evento de amanha -->
+                {% for evento in eventos_amanha %}
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            event
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>{{ evento.nome }} | {{ evento.lugar }}</h3>
+                            <small class="text_muted">
+                               {{ evento.tempo }}
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <!--
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            event
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Palestra | Plenario</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+                -->
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp">
+                            add
+                        </span>
+                        <h3>Adicionar Lembrete</h3>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <script src="static/js/index.js"></script>
 </body>
 
 </html>
