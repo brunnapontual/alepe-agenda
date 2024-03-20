@@ -243,6 +243,52 @@ li{
 .bx{
     font-size: 1.7rem;
 }
+main .eventos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+}
+main .eventos li{
+    padding: 24px;
+    border-radius: var(--card-border-radius);
+    display: flex;
+    margin-top: 1.4rem;
+    box-shadow: var(--box-shadow);
+    align-items: center;
+    grid-gap: 24px;
+    cursor: pointer;
+}
+#agendados{
+    background-color: var(--light-blue);
+}
+#progresso{
+    background-color: var(--light-progresso);
+}
+#concluidos{
+    background-color: var(--light-concluido);
+}
+
+main .eventos li .bx{
+    width: 90px;
+    height: 90px;
+    border-radius: var(--card-border-radius);
+    font-size: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+main .eventos li .info dt{
+    font-size: 24px;
+    font-weight: 600;
+    align-items: justify;
+    color: var(--color-dark);
+}
+main .eventos li .info dd{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--color-dark);
+}
 
 main .filtros{
     display: grid;
@@ -264,8 +310,8 @@ main .filtros li{
 }
 
 main .filtros li .bx{
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
     border-radius: var(--card-border-radius);
     font-size: 36px;
     display: flex;
@@ -558,6 +604,10 @@ main .recent-orders a{
     }
 
     main .filtros{
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    main .eventos{
         grid-template-columns: 1fr;
         gap: 0;
     }
