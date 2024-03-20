@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -6,10 +5,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Alepe Suporte</title>
-    <link rel="stylesheet" href="{% static 'styles/style-eventos.css' %}">
+    <link rel="stylesheet" href="style.css">
     <title>Agenda Alepe</title>
 </head>
+
+</body>
+
 <body>
+
     <div class="container">
         <!-- sidebar section -->
         <aside>
@@ -32,20 +35,25 @@
                     <span class="material-icons-sharp">
                         calendar_today
                     </span>
-                    <h3>Calendario</h3>
+                    <h3>Diário</h3>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         calendar_view_week
                     </span>
                     <h3>Mes</h3>
-                    <span class="message-count">12</span>
+                    <span class="message-count">7 </span>
                 </a>
                 <a href="#">
                     <span class="material-icons-sharp">
                         logout
                     </span>
-                    <h3>Logout</h3>
+                    <h3>
+                        <!-- form para logout -->
+                        
+                        <button type="submit">Logout</button>
+                        </form>
+                    </h3>
                 </a>
             </div>
         </aside>
@@ -60,7 +68,7 @@
                     <i class='bx bx-box'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.agendados }}
+                            5
                         </h3>
                         <p>Agendados</p>
                     </span>
@@ -68,7 +76,7 @@
                 <li><i class='bx bx-time-five'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.em_progresso }}
+                            2
                         </h3>
                         <p>Progresso</p>
                     </span>
@@ -76,12 +84,66 @@
                 <li><i class='bx bx-check-double'></i>
                     <span class="info">
                         <h3>
-                            {{ quantidade_eventos.concluidos }}
+                            3
                         </h3>
                         <p>Concluidos</p>
                     </span>
                 </li>
             </ul>
+            <br></br> <!-- dia da semana -->
+            <h1> Segunda, 13 de Abril </h1>
+            <ul class="eventos">
+                <li id="agendados">
+                    <i class='agendados'></i>
+                    <span class="info">
+                        <d1>
+                            <dt>Evento     |   10:00</dt>
+                            <dd>Infos</dd>
+                            <dd>Mais Infos</dd>
+                        </d1>
+                    </span>
+                </li>
+                <li id="agendados">
+                    <i class='agendados'></i>
+                    <span class="info">
+                        <d1>
+                            <dt>Evento</dt>
+                            <dd>Infos</dd>
+                            <dd>Mais Infos</dd>
+                        </d1>
+                    </span>
+                </li><li id="agendados">
+                    <i class='agendados'></i>
+                    <span class="info">
+                        <d1>
+                            <dt>Evento</dt>
+                            <dd>Infos</dd>
+                            <dd>Mais Infos</dd>
+                        </d1>
+                    </span>
+                </li>
+                <li id="progresso">
+                    <i class='progresso'></i>
+                    <span class="info">
+                        <d1>
+                            <dt>Evento</dt>
+                            <dd>Infos</dd>
+                            <dd>Mais Infos</dd>
+                        </d1>
+                    </span>
+                </li>
+                <li id="concluidos">
+                    <i class='concluidos'></i>
+                    <span class="info">
+                        <d1>
+                            <dt>Evento</dt>
+                            <dd>Infos</dd>
+                            <dd>Mais Infos</dd>
+                        </d1>
+                    </span>
+                </li>
+            </ul>
+            
             <!-- End of filtros -->
         </main>
         <!-- End of Main Content -->
@@ -105,7 +167,7 @@
 
                 <div class="profile">
                     <div class="info">
-                        <p><b> {{ current_user.username }}</b></p>
+                        <p><b> renato</b></p>
                         <small class="text-muted">Suporte</small>
                     </div>
                     <div class="profile-photo">
@@ -118,7 +180,7 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã</h2>
+                    <h2>Amanhã • </h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>
@@ -134,7 +196,7 @@
                     </div>
                     <div class="content">
                         <div class="info">
-                            <h3>{{ evento.nome }} | {{ evento.lugar }}</h3>
+                            <h3> evento.nome  |  evento.lugar </h3>
                             <small class="text_muted">
                                {{ evento.tempo }}
                             </small>
