@@ -18,7 +18,7 @@
         <aside>
             <div class="toggle">
                 <div class="logo">
-                    <img src="{% static 'assets/icons/icone-alepe 1.png' %}">
+                    <img src="icone-alepe 1.png">
                     <h2><span class="danger"> Alepe Suporte</span></h2>
                 </div>
                 
@@ -171,7 +171,7 @@
                         <small class="text-muted">Suporte</small>
                     </div>
                     <div class="profile-photo">
-                        <img src="{% static 'assets/images/home-eventos/profile-sti.png' %}">
+                        <img src="profile-sti.png">
                     </div>
                 </div>
 
@@ -180,35 +180,14 @@
 
             <div class="reminders">
                 <div class="header">
-                    <h2>Amanhã • </h2>
+                    <h2> Próximos Eventos </h2>
                     <span class="material-icons-sharp">
                         notifications_none
                     </span>
                 </div>
 
                 <!-- mudar para mostrar somente os evento de amanha -->
-                {% for evento in eventos_amanha %}
-                <div class="notification">
-                    <div class="icon">
-                        <span class="material-icons-sharp">
-                            event
-                        </span>
-                    </div>
-                    <div class="content">
-                        <div class="info">
-                            <h3> evento.nome  |  evento.lugar </h3>
-                            <small class="text_muted">
-                               {{ evento.tempo }}
-                            </small>
-                        </div>
-                        <span class="material-icons-sharp">
-                            more_vert
-                        </span>
-                    </div>
-                </div>
-                {% endfor %}
-
-                <!--
+               
                 <div class="notification deactive">
                     <div class="icon">
                         <span class="material-icons-sharp">
@@ -227,14 +206,32 @@
                         </span>
                     </div>
                 </div>
-                -->
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            event
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Palestra | Plenario</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+             
 
                 <div class="notification add-reminder">
                     <div>
                         <span class="material-icons-sharp">
                             add
                         </span>
-                        <h3>Adicionar Lembrete</h3>
+                        <h3>Adicionar Evento</h3>
                     </div>
                 </div>
 

@@ -177,7 +177,7 @@ aside .sidebar:hover{
 aside .sidebar a{
     display: flex;
     align-items: center;
-    color: var(--color-info-dark);
+    color: var(--color-danger);
     height: 3.7rem;
     gap: 1rem;
     position: relative;
@@ -198,7 +198,7 @@ aside .sidebar a:last-child{
 
 aside .sidebar a.active{
     width: 100%;
-    color: var(--color-blue);
+    color: var(--color-danger);
     background-color: var(--color-light);
     margin-left: 0;
 }
@@ -207,11 +207,11 @@ aside .sidebar a.active::before{
     content: '';
     width: 6px;
     height: 18px;
-    background-color: var(--color-blue);
+    background-color: var(--color-danger);
 }
 
 aside .sidebar a.active span{
-    color: var(--color-blue);
+    color: var(--color-danger);
     margin-left: calc(1rem - 3px);
 }
 
@@ -420,7 +420,7 @@ main .recent-orders a{
     text-align: center;
     display: block;
     margin: 1rem auto;
-    color: var(--color-blue);
+    color: var(--color-danger);
 }
 
 .right-section{
@@ -438,7 +438,7 @@ main .recent-orders a{
 }
 
 .right-section .dark-mode{
-    background-color: var(--color-light);
+    background-color: var(--color-white);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -561,8 +561,8 @@ main .recent-orders a{
 
 .right-section .reminders .add-reminder{
     background-color: var(--color-white);
-    border: 2px dashed var(--color-blue);
-    color: var(--color-blue);
+    border: 2px groove var(--color-danger);
+    color: var(--color-danger);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -570,7 +570,7 @@ main .recent-orders a{
 }
 
 .right-section .reminders .add-reminder:hover{
-    background-color: var(--color-blue);
+    background-color: var(--color-danger);
     color: white;
 }
 
